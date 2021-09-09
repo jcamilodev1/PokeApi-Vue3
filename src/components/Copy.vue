@@ -1,10 +1,26 @@
 <template>
-  <button>Share to my friends</button>
+  <div>
+    <button  @click="data()">Share to my friends</button>
+  </div>
 </template>
 
 <script>
 export default {
   name: "copy",
+  props: ['pokemon'],
+  setup(props){
+    const data = () => {
+      const pokemon = props.pokemon
+      let text
+      let types = []
+    pokemon.types.forEach(element => {
+        types.push(element.type.name)
+    });
+      text = `Name: ${pokemon.name},Weight:  ${pokemon.weight}, Height: ${pokemon.height}, Types: ${types.toString()}`
+      navigator.clipboard.writeText(text)
+    }
+    return{data}
+  }
 }
 </script>
 

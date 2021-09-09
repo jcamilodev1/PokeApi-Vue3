@@ -36,7 +36,7 @@
           </span>
         </p>
         <article class="popUp__container--txt--btn">
-        <copy></copy>
+        <copy :pokemon="pokemonData"></copy>
         <favorite :pokemon="pokemon"></favorite>
       </article>
       </article>
