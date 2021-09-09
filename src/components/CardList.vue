@@ -15,10 +15,11 @@
   setup(){
     const store = useStore()
     const pokemons =  computed( () => {
-      return store.state.pokemon
+      return store.state.pokemons
     })
+    
     onMounted(() => {
-      store.dispatch('getPokemon')
+      store.dispatch('getPokemons')
 
     })
 

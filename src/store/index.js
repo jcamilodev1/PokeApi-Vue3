@@ -5,31 +5,45 @@ const axios = require('axios');
 
 export default createStore({
   state: {
-    pokemon: [],
-    pokemonFav: [],
+    pokemons: [],
+    pokemonsFav: [],
     loader: true,
-    error: false
+    error: false,
+    pokemon: {
+      name: "",
+      img: "",
+      weight: "",
+      height : "",
+      types: ""
+    }
   },
   mutations: {
-    setPokemon(state, payload){
-      state.pokemon = payload
+    setPokemons(state, payload){
+      state.pokemons = payload
     },
-    setPokemonFav(state, payload){
-      state.pokemonFav = payload
+    setPokemonsFav(state, payload){
+      state.pokemonsFav = payload
     },
     setLoader( state,payload){
       state.loader =  payload
     },
     setError( state, payload){
       state.error =  payload
+    },
+    setPokemon( state, payload){
+      state.pokemon.name = payload.name
+      state.pokemon.img = payload.img
+      state.pokemon.weight = payload.weight
+      state.pokemon.height = payload.height
+      state.pokemon.types = payload.types
     }
   },
   actions: {
-    async getPokemon({ commit }){
+    async getPokemons({ commit }){
       try {
         const res = await axios.get("https://pokeapi.co/api/v2/pokemon")
         const data =  res.data.results
-        commit( "setPokemon", data)
+        commit( "setPokemons", data)
         commit( "setLoader", false )
         console.log(res)
 
@@ -37,6 +51,24 @@ export default createStore({
       } catch (error) {
         commit( "setLoader", false )
         commit( "setError", true)
+        console.log(error)
+      }
+    },
+    async getPokemon({commit}, name){
+      try {
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        const data =  await res.data
+        console.log(data)
+        const pokemon = {
+          name,
+          img: data.sprites.front_default,
+          weight: data.weight,
+          height: data.height,
+          types: data.types
+        }
+        console.log(data.types)
+        commit( "setPokemon", pokemon)
+      } catch (error) {
         console.log(error)
       }
     }

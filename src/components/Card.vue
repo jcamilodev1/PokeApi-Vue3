@@ -1,13 +1,35 @@
 <template>
-  <article class="card">
+  <article class="card" @click="toggleActive()">
     <h2>{{ pokemon.name }}</h2>
     <img src="../assets/img/Stargrey.svg"/>
   </article>
+  <pop-up  v-if="!active" :pokemon="pokemon"  @show="toggleActive()"></pop-up>
 </template>
 
 <script>
+import { computed, ref } from '@vue/reactivity'
+import PopUp from './PopUp.vue'
+import { useStore } from 'vuex';
+const axios = require('axios');
+
 export default {
-  props: ['pokemon']
+  components: { PopUp },
+  props: {
+    pokemon: {
+      type: Object,
+      default: []
+    }
+  },
+  setup(props) {
+    const active = ref(true)
+
+    const toggleActive = async () => {
+      active.value = !active.value
+      
+    }
+      return{active, toggleActive,}
+  }
+
 }
 </script>
 
@@ -21,10 +43,15 @@ export default {
     box-shadow: var(--shadow);
     border-radius: 5px;    
     margin: 20px auto;
+    cursor: pointer;
     h2{
       font-family: var(--font);
       font-size: 2.2rem;
       color: var(--colorTitle);
     }
+  }
+  .isActive{
+    z-index: -1;
+    opacity: 0;
   }
 </style>
