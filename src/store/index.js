@@ -27,7 +27,7 @@ export default createStore({
   actions: {
     async getPokemon({ commit }){
       try {
-        const res = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000")
+        const res = await axios.get("https://pokeapi.co/api/v2/pokemon")
         const data =  res.data.results
         commit( "setPokemon", data)
         commit( "setLoader", false )
