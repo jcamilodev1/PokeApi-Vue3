@@ -1,5 +1,5 @@
 <template>
-  <input type="text" class="input__search" placeholder="Pokemon">
+  <input type="text" class="input__search" placeholder="Search">
 
 </template>
 
@@ -26,7 +26,7 @@ export default {
     &::placeholder{
       font-size: 16px;
       font-family: var(--font);
-      color: var(--colorTile);
+      color: #bfbfbf;
     }
   }
 </style>
