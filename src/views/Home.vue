@@ -31,8 +31,10 @@ export default {
       font-weight: 700;
       margin-bottom: 30px;
       color: var(--colorTile);
+      font-family: var(--font);
     }
     p{
+        font-family: var(--font);
       font-size: 1.8rem;
       margin-bottom: 50px;
       color: var(--colorText);

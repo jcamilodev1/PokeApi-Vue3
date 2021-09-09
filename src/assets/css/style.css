@@ -13,5 +13,5 @@ html{
   --colorBtnHover: #C00E20;
   --colorTile: #353535;
   --colorText: #5e5e5e;
-
+  --shadow:  0px 2px 10px rgba(0, 0, 0, 0.04);
 }

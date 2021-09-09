@@ -18,7 +18,7 @@ export default {
     background-size: 15px;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow);
     padding: 14px;
     padding-left: 40px;
     font-family: var(--font);
