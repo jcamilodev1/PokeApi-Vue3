@@ -14,7 +14,7 @@ export default {
     width: 80%;
     background-image: url("../assets/img/Lens.svg");
     background-repeat: no-repeat;
-    background-position: 5% center;
+    background-position: 10px center;
     background-size: 15px;
     border: none;
     border-radius: 5px;
