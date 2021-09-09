@@ -1,11 +1,22 @@
 <template>
-  <input type="text" class="input__search" placeholder="Search">
+  <input type="text" class="input__search" placeholder="Search" v-model="text" @keyup="search"> 
 
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import { useStore } from 'vuex'
 export default {
-
+  setup(){
+    const text = ref('')
+    const store = useStore()
+    const search = () => {
+      store.dispatch('filterPokemon', text.value)
+    }
+    return {
+      text, search
+    }
+  }
 }
 </script>
 

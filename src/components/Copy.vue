@@ -11,6 +11,7 @@ export default {
 <style lang="scss">
 
   button{
+    width: auto;
     color: white;    
     background-color: var(--colorBtn);
     padding: 10px 20px;

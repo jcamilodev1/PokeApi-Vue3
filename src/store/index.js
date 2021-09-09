@@ -6,6 +6,7 @@ const axios = require('axios');
 export default createStore({
   state: {
     pokemons: [],
+    pokemonFilter: [],
     pokemonsFav: [],
     loader: true,
     error: false,
@@ -40,10 +41,13 @@ export default createStore({
     },
     setShow( state, payload){
       state.show = payload
+    },
+    pokemonFilter(state, payload){
+      state.pokemonFilter = payload
     }
   },
   actions: {
-    async getPokemons({ commit }){
+    async getPokemons({ commit, state }){
       try {
         const res = await axios.get("https://pokeapi.co/api/v2/pokemon")
         const data =  res.data.results
@@ -51,8 +55,8 @@ export default createStore({
           e.favorite = false
         });
         commit( "setPokemons", data)
+        commit('pokemonFilter', state.pokemons)
         commit( "setLoader", false )
-
       } catch (error) {
         commit( "setLoader", false )
         commit( "setError", true)
@@ -79,8 +83,19 @@ export default createStore({
       const favorite =  state.pokemons.filter( fav => fav.favorite)
       commit( "setPokemonsFav", favorite)
     },
-    showPokemon({commit}, condition){
+    showPokemon({commit, state}, condition){
       commit( "setShow", condition)
+    },
+    filterPokemon ({commit, state},texto){
+      const textInput =  texto.toLowerCase()
+      const filter = state.pokemons.filter( pokemon => {
+        const textApi = pokemon.name.toLowerCase()
+        if(textApi.includes(textInput)){
+          return pokemon
+        }
+
+      })
+      commit("pokemonFilter", filter)
     }
   },
   modules: {

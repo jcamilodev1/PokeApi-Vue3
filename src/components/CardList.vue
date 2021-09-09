@@ -17,7 +17,7 @@
   setup(){
     const store = useStore()
     const pokemons =  computed( () => {
-      return store.state.pokemons
+      return store.state.pokemonFilter
     })
     const pokemonsFav =  computed( () => {
       return store.state.pokemonsFav
