@@ -37,6 +37,7 @@
         </p>
         <article class="popUp__container--txt--btn">
         <copy></copy>
+        <favorite :pokemon="pokemon"></favorite>
       </article>
       </article>
 
@@ -49,9 +50,11 @@ import { computed, ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import { onMounted } from "@vue/runtime-core";
 import Copy from './Copy.vue';
+import Favorite from './Favorite.vue';
 
 export default {
-  components: { Copy },
+  components: { Copy, Favorite },
+  props: ["pokemon"],
   setup(props) {
     const store = useStore();
     const show = ref(false);
@@ -132,6 +135,8 @@ export default {
       }
       &--btn{
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-top: 30px;
       }
     }

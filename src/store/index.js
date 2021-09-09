@@ -9,6 +9,7 @@ export default createStore({
     pokemonsFav: [],
     loader: true,
     error: false,
+    active: false,
     pokemon: {
       name: "",
       img: "",
@@ -36,6 +37,9 @@ export default createStore({
       state.pokemon.weight = payload.weight
       state.pokemon.height = payload.height
       state.pokemon.types = payload.types
+    },
+    setActive( state, payload){
+      state.active = payload
     }
   },
   actions: {
@@ -43,10 +47,11 @@ export default createStore({
       try {
         const res = await axios.get("https://pokeapi.co/api/v2/pokemon")
         const data =  res.data.results
+        data.forEach(e => {
+          e.favorite = false
+        });
         commit( "setPokemons", data)
         commit( "setLoader", false )
-        console.log(res)
-
 
       } catch (error) {
         commit( "setLoader", false )
@@ -58,7 +63,6 @@ export default createStore({
       try {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
         const data =  await res.data
-        console.log(data)
         const pokemon = {
           name,
           img: data.sprites.front_default,
@@ -66,11 +70,16 @@ export default createStore({
           height: data.height,
           types: data.types
         }
-        console.log(data.types)
         commit( "setPokemon", pokemon)
       } catch (error) {
         console.log(error)
       }
+    },
+    pokemonFav({commit, state}, name ){
+      const favorite =  state.pokemons.filter( fav => fav.favorite)
+      commit( "setPokemonsFav", favorite)
+      
+      console.log(state.pokemonsFav)
     }
   },
   modules: {

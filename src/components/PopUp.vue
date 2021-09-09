@@ -1,5 +1,5 @@
 <template>
-    <card-pokemon :active="active"></card-pokemon>
+    <card-pokemon  :pokemon="pokemon"  :active="active"></card-pokemon>
 </template>
 
 <script>

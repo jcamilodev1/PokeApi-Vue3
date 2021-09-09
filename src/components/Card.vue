@@ -1,8 +1,8 @@
 <template>
   <article class="card" @click="toggleActive()">
     <h2>{{ pokemon.name }}</h2>
-    <img src="../assets/img/Stargrey.svg"/>
-  </article>
+    <favorite :pokemon="pokemon"></favorite>
+  </article >
   <pop-up  v-if="!active" :pokemon="pokemon"  @show="toggleActive()"></pop-up>
 </template>
 
@@ -10,10 +10,11 @@
 import { computed, ref } from '@vue/reactivity'
 import PopUp from './PopUp.vue'
 import { useStore } from 'vuex';
+import Favorite from './Favorite.vue';
 const axios = require('axios');
 
 export default {
-  components: { PopUp },
+  components: { PopUp, Favorite },
   props: {
     pokemon: {
       type: Object,
