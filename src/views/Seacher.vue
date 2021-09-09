@@ -9,18 +9,18 @@
         <p>You look lost on your journey!</p>
         <btn url="/" text="Go back home"></btn>
       </article>
-      <card></card>
+      <card-list></card-list>
     </article>
   </section>
 </template>
 
 <script>
 import Btn from '../components/Btn.vue';
-import Card from '../components/Card.vue';
+import CardList from '../components/CardList.vue';
 import Loader from "../components/Loader.vue";
 import Search from "../components/Search.vue";
 export default {
-  components: { Loader, Search, Btn,Card},
+  components: { Loader, Search, Btn, CardList},
   name: "Seacher",
 };
 </script>

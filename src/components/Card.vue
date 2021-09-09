@@ -1,13 +1,13 @@
 <template>
   <article class="card">
-    <h2>Pokemon #1</h2>
+    <h2>{{ pokemon.name }}</h2>
     <img src="../assets/img/Stargrey.svg"/>
   </article>
 </template>
 
 <script>
 export default {
-
+  props: ['pokemon']
 }
 </script>
 
