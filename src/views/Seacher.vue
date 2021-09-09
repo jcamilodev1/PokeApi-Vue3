@@ -1,7 +1,6 @@
 <template>
   <section class="container">
-    <!-- <loader></loader> -->
-
+    <loader v-if="statusChange"></loader>
     <article class="container__seacher">
       <search></search>
       <article class="container__seacher-txt">
@@ -15,14 +14,29 @@
 </template>
 
 <script>
-import Btn from '../components/Btn.vue';
-import CardList from '../components/CardList.vue';
-import Loader from "../components/Loader.vue";
-import Search from "../components/Search.vue";
-export default {
-  components: { Loader, Search, Btn, CardList},
-  name: "Seacher",
-};
+  import Btn from '../components/Btn.vue';
+  import CardList from '../components/CardList.vue';
+  import Loader from "../components/Loader.vue";
+  import Search from "../components/Search.vue";
+  import { computed, ref } from 'vue';
+  import {useStore} from 'vuex';
+  export default {
+    components: { Loader, Search, Btn, CardList},
+    name: "Seacher",
+    setup(){
+      const store = useStore()
+      const status = ref(true)
+      const statusChange =  computed( () => {
+          return store.state.loader
+      })
+      status.value = statusChange
+      console.log(statusChange)
+
+      return{statusChange}
+
+    }
+
+  };
 </script>
 
 <style lang="scss">

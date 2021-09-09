@@ -19,12 +19,15 @@ export default {
 
 <style lang="scss">
   .container__loader{
-      position: relative;
-      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color:  #F9F9F9;
   }
 .bounce {
   animation: bounce 2s ease infinite;

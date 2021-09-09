@@ -19,7 +19,6 @@
     onMounted(() => {
       store.dispatch('getPokemon')
 
-
     })
 
 
