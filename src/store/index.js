@@ -9,7 +9,7 @@ export default createStore({
     pokemonsFav: [],
     loader: true,
     error: false,
-    active: false,
+    show: false,
     pokemon: {
       name: "",
       img: "",
@@ -38,8 +38,8 @@ export default createStore({
       state.pokemon.height = payload.height
       state.pokemon.types = payload.types
     },
-    setActive( state, payload){
-      state.active = payload
+    setShow( state, payload){
+      state.show = payload
     }
   },
   actions: {
@@ -78,8 +78,9 @@ export default createStore({
     pokemonFav({commit, state}, name ){
       const favorite =  state.pokemons.filter( fav => fav.favorite)
       commit( "setPokemonsFav", favorite)
-      
-      console.log(state.pokemonsFav)
+    },
+    showPokemon({commit}, condition){
+      commit( "setShow", condition)
     }
   },
   modules: {

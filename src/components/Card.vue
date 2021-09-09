@@ -23,7 +23,6 @@ export default {
   },
   setup(props) {
     const active = ref(true)
-
     const toggleActive = async () => {
       active.value = !active.value
       

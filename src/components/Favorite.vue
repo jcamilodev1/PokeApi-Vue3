@@ -18,7 +18,6 @@ export default {
     const isActive = computed(()=> {
       return props.pokemon.favorite
     })
-    console.log( props.pokemon.favorite)
     const addFav = () => {
       
       pokemon.favorite = !pokemon.favorite

@@ -1,15 +1,18 @@
 <template>
-  <section class="container">
-    <loader v-if="statusChange"></loader>
-    <article class="container__seacher">
-      <search></search>
-      <article class="container__seacher-txt "  v-if="error">
-        <h2>Uh-oh!</h2>
-        <p>You look lost on your journey!</p>
-        <btn url="/" text="Go back home"></btn>
+  <section>
+    <section class="container">
+      <loader v-if="statusChange"></loader>
+      <article class="container__seacher">
+        <search></search>
+        <article class="container__seacher-txt "  v-if="error">
+          <h2>Uh-oh!</h2>
+          <p>You look lost on your journey!</p>
+          <btn url="/" text="Go back home"></btn>
+        </article>
+        <card-list></card-list>
       </article>
-      <card-list></card-list>
-    </article>
+    </section>
+    <nav-bar></nav-bar>
   </section>
 </template>
 
@@ -18,10 +21,12 @@
   import CardList from '../components/CardList.vue';
   import Loader from "../components/Loader.vue";
   import Search from "../components/Search.vue";
+  import NavBar from "../components/NavBar.vue"
   import { computed, ref } from 'vue';
   import {useStore} from 'vuex';
+
   export default {
-    components: { Loader, Search, Btn, CardList},
+    components: { Loader, Search, Btn, CardList, NavBar},
     name: "Seacher",
     setup(){
       const store = useStore()
