@@ -5,7 +5,7 @@
     </picture>
     <h1>Welcome to Pokédex</h1>
     <p>The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
-    <btn url="/seacher"></btn>
+    <btn url="/seacher" text="Get started"></btn>
   </div>
 </template>
 
@@ -30,10 +30,12 @@ export default {
       font-size: 2.6rem;
       font-weight: 700;
       margin-bottom: 30px;
+      color: var(--colorTile);
     }
     p{
       font-size: 1.8rem;
       margin-bottom: 50px;
+      color: var(--colorText);
     }
   }
 

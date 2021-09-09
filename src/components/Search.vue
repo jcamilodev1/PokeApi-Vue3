@@ -26,6 +26,7 @@ export default {
     &::placeholder{
       font-size: 16px;
       font-family: var(--font);
+      color: var(--colorTile);
     }
   }
 </style>

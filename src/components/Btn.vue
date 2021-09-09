@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="url">Get started</router-link>
+  <router-link :to="url">{{ text }}</router-link>
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     url: {
       type: String,
       default: "/"
+    },
+    text: {
+      type: String,
+      default: "Click Me"
     }
   }
 }
@@ -24,6 +28,7 @@ export default {
     text-decoration: none;
     font-size: 1.8rem;
     font-family: var(--font);
+    font-weight: 600;
     &:hover{
       background-color: var(--colorBtnHover);
     }

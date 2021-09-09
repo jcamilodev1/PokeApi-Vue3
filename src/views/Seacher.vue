@@ -1,25 +1,46 @@
 <template>
   <section class="container">
-
     <!-- <loader></loader> -->
-  <search></search>
 
+    <article class="container__seacher">
+      <search></search>
+      <article class="container__seacher-txt">
+        <h1>Uh-oh!</h1>
+        <p>You look lost on your journey!</p>
+        <btn url="/" text="Go back home"></btn>
+      </article>
+    </article>
   </section>
-
 </template>
 
 <script>
-import Loader from '../components/Loader.vue'
-import Search from '../components/Search.vue'
+import Btn from '../components/Btn.vue';
+import Loader from "../components/Loader.vue";
+import Search from "../components/Search.vue";
 export default {
-  components: { Loader, Search },
-  name: "Seacher"
-}
+  components: { Loader, Search, Btn },
+  name: "Seacher",
+};
 </script>
 
 <style lang="scss">
-  .container{
-    padding: 20px;
+.container {
+  padding: 20px;
+  &__seacher {
+    &-txt {
+      h1 {
+        font-family: var(--font);
+        font-size: 3.6rem;
+        font-weight: 700;
+        margin: 30px 0;
+      }
+      p {
+        font-family: var(--font);
+        font-size: 1.8rem;
+        margin-bottom: 50px;
+        color: var(--colorText);
+      }
+    }
   }
-
+}
 </style>
