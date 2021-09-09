@@ -3,7 +3,7 @@
     <loader v-if="statusChange"></loader>
     <article class="container__seacher">
       <search></search>
-      <article class="container__seacher-txt">
+      <article class="container__seacher-txt "  v-if="error">
         <h2>Uh-oh!</h2>
         <p>You look lost on your journey!</p>
         <btn url="/" text="Go back home"></btn>
@@ -25,14 +25,13 @@
     name: "Seacher",
     setup(){
       const store = useStore()
-      const status = ref(true)
       const statusChange =  computed( () => {
           return store.state.loader
       })
-      status.value = statusChange
-      console.log(statusChange)
-
-      return{statusChange}
+      const error =  computed( () => {
+          return store.state.error
+      })
+      return{statusChange, error}
 
     }
 

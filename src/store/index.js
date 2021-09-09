@@ -7,7 +7,8 @@ export default createStore({
   state: {
     pokemon: [],
     pokemonFav: [],
-    loader: true
+    loader: true,
+    error: false
   },
   mutations: {
     setPokemon(state, payload){
@@ -18,6 +19,9 @@ export default createStore({
     },
     setLoader( state,payload){
       state.loader =  payload
+    },
+    setError( state, payload){
+      state.error =  payload
     }
   },
   actions: {
@@ -31,6 +35,8 @@ export default createStore({
 
 
       } catch (error) {
+        commit( "setLoader", false )
+        commit( "setError", true)
         console.log(error)
       }
     }

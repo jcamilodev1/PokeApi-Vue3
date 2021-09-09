@@ -20,7 +20,7 @@ export default {
     padding: 10px;
     box-shadow: var(--shadow);
     border-radius: 5px;    
-    margin: 100px auto;
+    margin: 20px auto;
     h2{
       font-family: var(--font);
       font-size: 2.2rem;

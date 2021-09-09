@@ -1,6 +1,7 @@
 <template>
-
-  <card :pokemon="pokemon" v-for="pokemon in pokemons" :key="pokemon.name"></card>
+  <section class="card__container">
+    <card :pokemon="pokemon" v-for="pokemon in pokemons" :key="pokemon.name"></card>
+  </section>
 
 </template>
 
@@ -29,5 +30,7 @@
 </script>
 
 <style lang ="scss">
-
+  .card__container{
+    margin-top: 50px;
+  }
 </style>
