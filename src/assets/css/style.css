@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.25%;
+}
+:root{
+  --font : 'Lato';
+  --colorBtn: #F22539;
+  --colorBtnHover: #C00E20;
+}
