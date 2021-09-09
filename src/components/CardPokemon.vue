@@ -75,7 +75,7 @@ export default {
   &__container {
     display: grid;
     grid-template-rows: 1fr 1.5fr;
-    max-width: 800px;
+    max-width: 600px;
     width: 80%;
     height: 70%;
     background-color: white;
