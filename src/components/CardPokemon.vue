@@ -81,6 +81,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  z-index: +2;
   &__container {
     display: grid;
     grid-template-rows: 1fr 1.5fr;
@@ -92,6 +93,9 @@ export default {
     border-radius: 10px;
     box-shadow: var(--shadow);
     overflow: hidden;
+    @media(min-width: 700px){
+      min-height: 500px;
+    }
     &--img {
       position: relative;
       overflow: hidden;
