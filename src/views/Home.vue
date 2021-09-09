@@ -22,7 +22,7 @@ export default {
 </script>
 <style lang="scss">
   .home{
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     font-family: var(--font);

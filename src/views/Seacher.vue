@@ -27,6 +27,8 @@ export default {
 
 <style lang="scss">
 .container {
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
   &__seacher {
     &-txt {
