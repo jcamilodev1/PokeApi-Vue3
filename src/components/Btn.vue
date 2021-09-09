@@ -29,6 +29,7 @@ export default {
     font-size: 1.8rem;
     font-family: var(--font);
     font-weight: 600;
+    cursor: pointer;
     &:hover{
       background-color: var(--colorBtnHover);
     }

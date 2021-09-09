@@ -35,7 +35,11 @@
             >{{ type.type.name }},
           </span>
         </p>
+        <article class="popUp__container--txt--btn">
+        <copy></copy>
       </article>
+      </article>
+
     </section>
   </section>
 </template>
@@ -44,8 +48,10 @@
 import { computed, ref } from "@vue/reactivity";
 import { useStore } from "vuex";
 import { onMounted } from "@vue/runtime-core";
+import Copy from './Copy.vue';
 
 export default {
+  components: { Copy },
   setup(props) {
     const store = useStore();
     const show = ref(false);
@@ -76,6 +82,7 @@ export default {
     display: grid;
     grid-template-rows: 1fr 1.5fr;
     max-width: 600px;
+    max-height: 500px;
     width: 80%;
     height: 70%;
     background-color: white;
@@ -122,6 +129,10 @@ export default {
         span {
           font-weight: 400;
         }
+      }
+      &--btn{
+        display: flex;
+        margin-top: 30px;
       }
     }
   }
