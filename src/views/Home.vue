@@ -1,18 +1,40 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <picture class="home__logo">
+      <img src="../assets/img/pokemon.svg" alt="Pokemon" title="Pokemon">
+    </picture>
+    <h1>Welcome to Pokédex</h1>
+    <p>The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
+
   </div>
 </template>
 
 <script>
+import Btn from '../components/Btn.vue'
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    Btn
+}
 }
 </script>
+<style lang="scss">
+  .home{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: var(--font);
+    h1{
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    p{
+      font-size: 1.8rem;
+      margin-bottom: 50px;
+    }
+  }
+
+</style>
