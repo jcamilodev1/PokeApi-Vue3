@@ -69,7 +69,9 @@ export default {
   min-height: 35px;
   border-radius: 4px;
   background-color: #F22539;;
-
+  @media(max-width: 700px){
+    bottom: 15%;
+  }
   &:hover {
 	  background-color: #F22539;;
   }
