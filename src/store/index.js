@@ -1,3 +1,4 @@
+
 import { createStore } from 'vuex'
 
 const axios = require('axios');
@@ -8,6 +9,8 @@ export default createStore({
     pokemons: [],
     pokemonFilter: [],
     pokemonsFav: [],
+    prev: '',
+    next: '',
     loader: true,
     error: false,
     show: false,
@@ -26,6 +29,12 @@ export default createStore({
     setPokemonsFav(state, payload){
       state.pokemonsFav = payload
     },
+    setNext(state , payload){
+      state.next = payload
+    },
+    setPrev(state , payload){
+      state.prev = payload
+    },
     setLoader( state,payload){
       state.loader =  payload
     },
@@ -33,11 +42,7 @@ export default createStore({
       state.error =  payload
     },
     setPokemon( state, payload){
-      state.pokemon.name = payload.name
-      state.pokemon.img = payload.img
-      state.pokemon.weight = payload.weight
-      state.pokemon.height = payload.height
-      state.pokemon.types = payload.types
+      state.pokemon = {...payload}
     },
     setShow( state, payload){
       state.show = payload
@@ -47,16 +52,22 @@ export default createStore({
     }
   },
   actions: {
-    async getPokemons({ commit, state }){
+    async getPokemons({ commit, state },name){
       try {
-        const res = await axios.get("https://pokeapi.co/api/v2/pokemon")
+        const res = await axios.get(name)
         const data =  res.data.results
+        const next =  res.data.next
+        const prev =  res.data.previous
         data.forEach(e => {
           e.favorite = false
         });
         commit( "setPokemons", data)
         commit('pokemonFilter', state.pokemons)
         commit( "setLoader", false )
+        commit( "setPrev", prev )
+        commit( "setNext", next )
+
+
       } catch (error) {
         commit( "setLoader", false )
         commit( "setError", true)

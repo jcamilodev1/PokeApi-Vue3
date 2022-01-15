@@ -108,6 +108,7 @@ export default {
         top: 5%;
         transform: translate(-95%, 0);
         z-index: +1;
+        cursor: pointer;
       }
       &-bg {
         position: absolute;

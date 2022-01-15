@@ -36,6 +36,7 @@ export default {
 <style lang="scss">
   .card{
     width: 80%;
+    // max-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,6 +49,7 @@ export default {
       font-family: var(--font);
       font-size: 2.2rem;
       color: var(--colorTitle);
+      text-transform: capitalize;
     }
   }
   .isActive{
