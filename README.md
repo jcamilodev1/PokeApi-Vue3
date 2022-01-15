@@ -2,8 +2,8 @@
 
 ## Web 
 
-  - Deploy Netlify
-  - [Web pages](https://pokemonglobal66.netlify.app/).
+  - Deploy Vercel
+  - [Web pages](https://poke-api-vue3.vercel.app/).
 
 ## technologies
 
