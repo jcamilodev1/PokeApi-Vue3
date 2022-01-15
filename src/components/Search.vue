@@ -34,6 +34,7 @@ export default {
     input{
       width: 100%;
       font-size: 15px;
+      padding: 7px 30px;
     }
   }
 </style>
