@@ -6,14 +6,10 @@
       :key="pokemon.name"
     ></card>
     <article>
-      <button v-if="showPrev"
-        @click="prev()"
-      >Previous</button>
-      <button
-        @click="next()"
-        text="Next"
-      >Next</button>
+      <button v-if="showPrev" @click="prev()">Previous</button>
+      <button @click="next()" text="Next">Next</button>
     </article>
+    <ScrollTop/>
   </section>
   <section class="card__container" v-if="show">
     <card
@@ -47,25 +43,37 @@ export default {
       return store.state.prev;
     });
     const next = () => {
-      const url = store.state.next; 
+      const url = store.state.next;
       store.dispatch("getPokemons", url);
-    }
+    };
     const prev = () => {
-      const url = store.state.prev; 
+      const url = store.state.prev;
       store.dispatch("getPokemons", url);
-    }
+    };
     onMounted(() => {
       const url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20";
       store.dispatch("getPokemons", url);
     });
 
-    return { pokemons, show, pokemonsFav, next,showPrev, prev };
+    return { pokemons, show, pokemonsFav, next, showPrev, prev };
   },
 };
 </script>
 
 <style lang ="scss" scoped>
+.p-scrolltop{
+  display:flex;
+  max-width: 35px;
+  max-height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  border-radius: 4px;
+  background-color: #F22539;;
 
+  &:hover {
+	  background-color: #F22539;;
+  }
+}
 article{
   display: flex;
   width: 80%;
@@ -85,5 +93,20 @@ article{
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 100px;
   }
+}
+::v-deep(.custom-scrolltop) {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    background-color: #F22539;;
+
+    &:hover {
+		background-color: #F22539;;
+	}
+
+    .p-scrolltop-icon {
+        font-size: 1rem;
+        color: white;
+    }
 }
 </style>
